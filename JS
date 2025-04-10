@@ -1,0 +1,25 @@
+document.addEventListener('DOMContentLoaded', function () {
+  const progressBars = document.querySelectorAll('.progress-bar');
+
+  function animateBars() {
+    progressBars.forEach(bar => {
+      const progress = bar.getAttribute('data-progress');
+      const fill = bar.querySelector('::before');
+      bar.style.setProperty('--progress', `${progress}%`);
+    });
+  }
+
+  function onScroll() {
+    progressBars.forEach(bar => {
+      const barPosition = bar.getBoundingClientRect().top;
+      if (barPosition < window.innerHeight) {
+        bar.classList.add('in-view');
+      }
+    });
+  }
+
+  window.addEventListener('scroll', onScroll);
+
+  onScroll();
+});
+
