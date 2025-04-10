@@ -1,0 +1,153 @@
+body {
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f0f2f5;
+  color: #333;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  flex-direction: column;
+}
+
+h2 {
+  font-size: 2.5rem;
+  margin-bottom: 40px;
+  color: #333;
+  font-weight: bold;
+}
+
+.infographics {
+  width: 90%;
+  max-width: 1200px;
+  padding: 30px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.progress-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.progress-bar {
+  position: relative;
+  height: 50px;
+  width: 100%;
+  background-color: #e6e6e6;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: all 0.5s ease-in-out;
+}
+
+.progress-bar:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+.progress-bar .icon {
+  font-size: 30px;
+  color: #fff;
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.progress-bar .progress-text {
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1rem;
+  font-weight: bold;
+  color: #fff;
+}
+
+.tooltip {
+  visibility: hidden;
+  position: absolute;
+  top: -35px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #333;
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 0.9rem;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.progress-bar:hover .tooltip {
+  visibility: visible;
+  opacity: 1;
+}
+
+.progress-bar[data-progress="90"] {
+  background-color: #007bff;
+}
+
+.progress-bar[data-progress="80"] {
+  background-color: #28a745;
+}
+
+.progress-bar[data-progress="75"] {
+  background-color: #ffc107;
+}
+
+.progress-bar[data-progress="60"] {
+  background-color: #fd7e14;
+}
+
+.progress-bar[data-progress="50"] {
+  background-color: #6c757d;
+}
+
+.progress-bar:before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  background-color: #00bcd4;
+  border-radius: 12px;
+  width: 0;
+  transition: width 1s ease-out;
+}
+
+.progress-bar[data-progress="90"]:before {
+  width: 90%;
+}
+
+.progress-bar[data-progress="80"]:before {
+  width: 80%;
+}
+
+.progress-bar[data-progress="75"]:before {
+  width: 75%;
+}
+
+.progress-bar[data-progress="60"]:before {
+  width: 60%;
+}
+
+.progress-bar[data-progress="50"]:before {
+  width: 50%;
+}
+
+@media (max-width: 768px) {
+  .progress-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .progress-bar {
+    width: 90%;
+  }
+}
